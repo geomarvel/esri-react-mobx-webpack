@@ -1,6 +1,7 @@
 var debug = process.env.NODE_ENV !== "prod";
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var UglifyJsPlugin  = require('uglifyjs-webpack-plugin');
+var webpack = require("webpack");
 
 var copyFiles = new CopyWebpackPlugin([
             { from: __dirname + '/app/index.html' },
@@ -12,8 +13,9 @@ module.exports = {
         javascript: "./js/app.js"
     },
     output: {
-        filename: "app.js",
+        filename: "js/app.js",
         path: __dirname + "/dist",
+        libraryTarget: 'amd'
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json']
@@ -31,10 +33,28 @@ module.exports = {
             }
         ]
     },
+    externals: [
+        function(context, request, callback) {
+            if (/^dojo/.test(request) ||
+                /^dojox/.test(request) ||
+                /^dijit/.test(request) ||
+                /^esri/.test(request)
+            ) {
+                return callback(null, "amd " + request);
+            }
+            callback();
+        }
+    ],
     plugins: debug ? [
         copyFiles
         ] : [
         copyFiles,
-        new UglifyJsPlugin({ mangle: true, sourcemap: true,compress:true })
+        new UglifyJsPlugin({ mangle: true, sourcemap: true,compress:true }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
     ]
 };
