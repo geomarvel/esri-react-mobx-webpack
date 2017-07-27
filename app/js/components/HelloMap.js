@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Map from 'esri/Map';
 import MapView from 'esri/views/MapView';
 import VectorTileLayer from "esri/layers/VectorTileLayer";
+import Header from './shared/Header';
 
 export default class HelloWorld extends Component {
   constructor(){
@@ -27,7 +28,10 @@ export default class HelloWorld extends Component {
   }
   render() {
     return (
-        <div id="map"></div>
+        <div className="app">
+          <Header />
+          <div id="map"></div>
+        </div>
     );
   }
 }

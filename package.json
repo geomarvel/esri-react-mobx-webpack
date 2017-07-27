@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "min-css": "node_modules/.bin/uglifycss ./app/css/app.min.css > ./dist/css/app.min.css",
+    "styl": "./node_modules/.bin/stylus -l --watch app/css/app.styl -o dist/css --watch",
     "start": "./node_modules/.bin/cross-env NODE_ENV=dev node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline",
-    "build": "./node_modules/.bin/cross-env NODE_ENV=prod node ./node_modules/webpack/bin/webpack.js; npm run min-css"
+    "build": "./node_modules/.bin/cross-env NODE_ENV=prod node ./node_modules/webpack/bin/webpack.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +19,11 @@
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
+    "style-loader": "^0.18.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "uglifycss": "0.0.27",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.4.1",

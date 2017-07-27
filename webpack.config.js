@@ -5,8 +5,8 @@ var webpack = require("webpack");
 
 var copyFiles = new CopyWebpackPlugin([
             { from: __dirname + '/app/index.html' },
-            { from: __dirname + '/app/css/*.css' }
 ]);
+// { from: __dirname + '/app/css/*.css' }
 module.exports = {
     context: __dirname + "/app",
     entry: {
@@ -30,6 +30,14 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: "file-loader?name=[name].[ext]",
+            },
+            { 
+                test: /\.styl$/,
+                loader: 'style-loader!css-loader!stylus-loader' 
+            },
+            { 
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
             }
         ]
     },
