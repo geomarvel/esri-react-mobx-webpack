@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "min-css": "node_modules/.bin/uglifycss ./app/css/app.min.css > ./dist/css/app.min.css",
-    "styl": "./node_modules/.bin/stylus -l --watch app/css/app.styl -o dist/css --watch",
+    "styl": "./node_modules/.bin/stylus -l app/css/app.styl -o dist/css",
     "start": "./node_modules/.bin/cross-env NODE_ENV=dev node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline",
-    "build": "./node_modules/.bin/cross-env NODE_ENV=prod node ./node_modules/webpack/bin/webpack.js"
+    "build-dir":"mkdir -p dist/css",
+    "build": "npm run build-dir; npm run styl; ./node_modules/.bin/cross-env NODE_ENV=prod node ./node_modules/webpack/bin/webpack.js"
   },
   "author": "",
   "license": "ISC",
