@@ -20,14 +20,12 @@ export default class HelloWorld extends Component {
         url: "https://www.arcgis.com/sharing/rest/content/items/4e1133c28ac04cca97693cf336cd49ad/resources/styles/root.json?f=json",
         title:"Basemap"
       });
-
-      // var map = new Map();
-      // map.add(tileLyr);
       
       const promise = new MapView({
         container:"map",
         map: new Map({
-          basemap: 'streets-vector'
+          basemap: 'streets-vector',
+          layers:[tileLyr]
         }),
         center: [-35.55, 26.53],
         zoom: 2,
@@ -35,7 +33,9 @@ export default class HelloWorld extends Component {
           components: ["attribution"] // empty the UI, except for attribution
         }
       });
+
       promise.then(function(view){
+        debugger
         this.setState({view: view});
       }.bind(this));
 

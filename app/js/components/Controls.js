@@ -13,7 +13,6 @@ export default class Controls extends Component {
         this.props = props
     }
   zoomIn = () => {
-    debugger
     const {view} = this.props;
     if (view) {
       view.goTo({ zoom: view.zoom + 1 }, animationOptions);
