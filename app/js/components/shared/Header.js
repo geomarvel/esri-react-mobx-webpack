@@ -13,7 +13,7 @@ export default class Header extends Component {
             <div className="grid-container">
                 <div className="column-24">
                 <div className="tablet-hide">
-                    <a href="#" className="top-nav-title">GeoMarvel</a>
+                    <a href="#" className="top-nav-title">ESRI React Mobx Webpack</a>
                     <nav className="top-nav-list" role="navigation" aria-labelledby="topnav">
                     <a className="top-nav-link" href="#">Dashboard</a>
                     <a className="top-nav-link" href="#">Plans</a>
@@ -33,7 +33,7 @@ export default class Header extends Component {
                     <a href="/" className="icon-ui-menu top-nav-link js-drawer-toggle" data-drawer="top-nav"><span className="phone-hide">Menu</span></a>
                     </nav>
                     <header className="top-nav-flex-title">
-                    <a href="/" className="top-nav-link">GeoMarvel</a>
+                    <a href="/" className="top-nav-link">ESRI React Mobx Webpack</a>
                     </header>
                     <nav className="top-nav-flex-list text-right" role="navigation" aria-labelledby="usernav">
                     <a className="top-nav-link icon-ui-search js-drawer-toggle" href="#" aria-label="Search"><span className="phone-hide">Search</span></a>
