@@ -6,58 +6,47 @@ import MapImageLayer from "esri/layers/MapImageLayer";
 import LayerList from "esri/widgets/LayerList";
 import GroupLayer from "esri/layers/GroupLayer";
 import Header from './shared/Header';
+import Controls from './Controls';
 
 export default class HelloWorld extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props);
+    this.state = {
+      view:{}
+    }
   }
   componentDidMount(){
-      var map = new Map();
+    var tileLyr = new VectorTileLayer({
+        url: "https://www.arcgis.com/sharing/rest/content/items/4e1133c28ac04cca97693cf336cd49ad/resources/styles/root.json?f=json",
+        title:"Basemap"
+      });
 
-      var view = new MapView({
-        container: "map",
-        map: map,
+      // var map = new Map();
+      // map.add(tileLyr);
+      
+      const promise = new MapView({
+        container:"map",
+        map: new Map({
+          basemap: 'streets-vector'
+        }),
         center: [-35.55, 26.53],
         zoom: 2,
         ui: {
           components: ["attribution"] // empty the UI, except for attribution
         }
       });
-      var tileLyr = new VectorTileLayer({
-        url: "https://www.arcgis.com/sharing/rest/content/items/4e1133c28ac04cca97693cf336cd49ad/resources/styles/root.json?f=json",
-        title:"Basemap"
-      });
-      var householdIncomeLayer = new MapImageLayer({
-        url: "https://server.arcgisonline.com/arcgis/rest/services/Demographics/USA_Median_Household_Income/MapServer",
-        title: "US Median Household Income"
-      });
-      var medianNetWorthLayer = new MapImageLayer({
-        url: "https://server.arcgisonline.com/arcgis/rest/services/Demographics/USA_Median_Net_Worth/MapServer",
-        title: "US Median Net Worth",
-        visibility: false
-      });
-      var demographicGroupLayer = new GroupLayer({
-        title: "US Demographics",
-        visibility: true,
-        visibilityMode: "exclusive",
-        layers: [householdIncomeLayer, medianNetWorthLayer],
-        opacity: 0.75
-      });
-      view.then(function(){
-        var layerList = new LayerList({
-          view: view
-        });
-        view.ui.add(layerList, "bottom-right");
-      })
-      map.add(tileLyr);
-      map.layers = [demographicGroupLayer];
+      promise.then(function(view){
+        this.setState({view: view});
+      }.bind(this));
 
   }
   render() {
     return (
         <div className="app">
           <Header />
-          <div id="map"></div>
+          <div id="map">
+            <Controls view={this.state.view} />
+          </div>
         </div>
     );
   }
