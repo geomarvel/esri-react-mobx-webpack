@@ -1,0 +1,88 @@
+
+/* line 3 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/app.styl */
+
+/* line 1 : /Users/jonnordling/projects/geomarvel-start-a-project/node_modules/stylus/lib/functions/index.styl */
+
+/* line 297 : /Users/jonnordling/projects/geomarvel-start-a-project/node_modules/stylus/lib/functions/index.styl */
+
+/* line 297 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/base.styl */
+
+/* line 1 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/base.styl */
+html,
+body,
+#app,
+.app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 10 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/base.styl */
+.app {
+  flex-direction: column;
+  display: flex;
+}
+
+/* line 13 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/base.styl */
+
+/* line 13 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/header.styl */
+
+/* line 1 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/header.styl */
+.top-nav {
+  position: absolute;
+  width: 100%;
+}
+
+/* line 3 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/header.styl */
+
+/* line 3 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/map.styl */
+
+/* line 1 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/map.styl */
+#map {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* line 7 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/map.styl */
+.map-controls {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  top: 80px;
+  right: 0;
+  margin: 20px;
+}
+
+/* line 15 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/map.styl */
+.map-controls__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 20 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/map.styl */
+.map-controls__item {
+  border: 1px solid #aaa;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 0px;
+  float: left;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+}
+
+/* line 31 : /Users/jonnordling/projects/geomarvel-start-a-project/app/css/map.styl */
+.map-controls__item-icon {
+  text-align: center;
+  display: block;
+  margin: 5px;
+  height: 40px;
+  width: 40px;
+  color: #000;
+  font-size: 17px;
+}
