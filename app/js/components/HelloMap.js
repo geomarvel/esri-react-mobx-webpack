@@ -7,13 +7,12 @@ import LayerList from "esri/widgets/LayerList";
 import GroupLayer from "esri/layers/GroupLayer";
 import Header from './shared/Header';
 import Controls from './Controls';
+import {observer} from 'mobx-react';
 
+@observer
 export default class HelloWorld extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      view:{}
-    }
   }
   componentDidMount(){
     var tileLyr = new VectorTileLayer({
@@ -28,24 +27,27 @@ export default class HelloWorld extends Component {
           layers:[tileLyr]
         }),
         center: [-35.55, 26.53],
-        zoom: 2,
+        zoom: this.props.store.zoomLevel,
         ui: {
           components: ["attribution"] // empty the UI, except for attribution
         }
       });
 
       promise.then(function(view){
-        debugger
-        this.setState({view: view});
+        this.props.store.view = view;
+      }.bind(this));
+
+      promise.watch("zoom", function(response){
+        this.props.store.zoomLevel = parseInt(response);
       }.bind(this));
 
   }
   render() {
     return (
         <div className="app">
-          <Header />
+          <Header store={this.props.store}/>
           <div id="map">
-            <Controls view={this.state.view} />
+            <Controls store={this.props.store} />
           </div>
         </div>
     );

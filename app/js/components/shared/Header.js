@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-
+import {observer} from 'mobx-react';
+@observer
 export default class Header extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
   }
   componentDidMount(){
 
@@ -13,11 +14,11 @@ export default class Header extends Component {
             <div className="grid-container">
                 <div className="column-24">
                 <div className="tablet-hide">
-                    <a href="#" className="top-nav-title">ESRI React Mobx Webpack</a>
+                    <a href="#" className="top-nav-title"> Zooming in/out</a>
                     <nav className="top-nav-list" role="navigation" aria-labelledby="topnav">
-                    <a className="top-nav-link" href="#">Dashboard</a>
-                    <a className="top-nav-link" href="#">Plans</a>
-                    <a className="top-nav-link" href="#">Docs</a>
+                    <a className="top-nav-link" href="#">Zoom level = {this.props.store.zoomLevel}</a>
+                    {/* <a className="top-nav-link" href="#">Plans</a>
+                    <a className="top-nav-link" href="#">Docs</a> */}
                     </nav>
                     <nav className="className-top-nav-list right" role="navigation" aria-labelledby="usernav">
                     <form method="GET" action="/search/" className="inline-block padding-leader-half">
