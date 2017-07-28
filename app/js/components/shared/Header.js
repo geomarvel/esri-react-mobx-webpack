@@ -14,7 +14,8 @@ export default class Header extends Component {
             <div className="grid-container">
                 <div className="column-24">
                 <div className="tablet-hide">
-                    <a href="#" className="top-nav-title"> Zooming in/out</a>
+                    <a href="#" className="top-nav-title">ESRI React Mobx Webpack</a>
+                    <span className="top-nav-title">Try zooming in/out</span>
                     <nav className="top-nav-list" role="navigation" aria-labelledby="topnav">
                     <a className="top-nav-link" href="#">Zoom level = {this.props.store.zoomLevel}</a>
                     {/* <a className="top-nav-link" href="#">Plans</a>
