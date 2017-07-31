@@ -45,4 +45,4 @@ Webpack and dojo used to not play nice together, but using wepack externals whic
 * [Mobx](mobx.js.org)
 * [Webpack](https://webpack.github.io/)
 * [ArcGIS JavaScript API](https://js.arcgis.com)
-* [Calcite Web] (http://esri.github.io/calcite-web/)
+* [Calcite Web](http://esri.github.io/calcite-web/)
